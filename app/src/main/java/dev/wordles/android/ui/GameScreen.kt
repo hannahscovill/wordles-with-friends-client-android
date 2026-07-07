@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Text
@@ -39,15 +39,19 @@ fun GameScreen(viewModel: GameViewModel) {
         verticalArrangement = Arrangement.SpaceBetween,
     ) {
         // Header
-        Text(
-            text = "Wordles",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp),
-            textAlign = TextAlign.Center,
-        )
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = "Wordles with Friends",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp),
+                textAlign = TextAlign.Center,
+                letterSpacing = 2.sp,
+            )
+            HorizontalDivider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f))
+        }
 
         // Board
         Box(
