@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew *)",
+      "Bash(gradle *)",
+      "Bash(adb *)",
+      "Bash(avdmanager *)",
+      "Bash(sdkmanager *)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(java *)",
+      "Bash(keytool *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(cat *)",
+      "Bash(echo *)"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "dev.wordles.android.app-mergeDebugResources-45:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "/Users/hannahscovill/.gradle/caches/8.11.1/transforms/ebb3c0cf8a14cacf74808488ac6bcfe5/transformed/material3-release/res/values-v30/values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        }
+    ]
+}

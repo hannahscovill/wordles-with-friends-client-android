@@ -1,0 +1,3 @@
+-keep class dev.wordles.android.data.** { *; }
+-keepattributes *Annotation*
+-dontwarn okhttp3.**
