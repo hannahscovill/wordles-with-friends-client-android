@@ -25,6 +25,18 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > ${{ github.workspace }}/release.keystore
 
+      - name: Derive version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF_NAME}"           # e.g. v0.0.4
+          CLEAN="${TAG#v}"                   # e.g. 0.0.4
+          MAJOR=$(echo "$CLEAN" | cut -d. -f1)
+          MINOR=$(echo "$CLEAN" | cut -d. -f2)
+          PATCH=$(echo "$CLEAN" | cut -d. -f3)
+          CODE=$(( MAJOR * 10000 + MINOR * 100 + PATCH ))
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          echo "name=$CLEAN" >> "$GITHUB_OUTPUT"
+
       - name: Build release AAB
         run: ./gradlew bundleRelease
         env:
@@ -32,6 +44,8 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          VERSION_CODE: ${{ steps.version.outputs.code }}
+          VERSION_NAME: ${{ steps.version.outputs.name }}
 
       - name: Sign AAB
         uses: r0adkll/sign-android-release@v1
